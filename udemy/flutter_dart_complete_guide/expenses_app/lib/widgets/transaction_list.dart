@@ -43,7 +43,7 @@ class TransactionList extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        _transactions[idx].formattedAmount(),
+                        _transactions[idx].formattedAmount,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -59,7 +59,7 @@ class TransactionList extends StatelessWidget {
                           style: Theme.of(context).textTheme.headline6,
                         ),
                         Text(
-                          _transactions[idx].formattedDate(),
+                          _transactions[idx].formattedDate,
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontSize: 16,

@@ -7,7 +7,10 @@ class Transaction {
   final int amount; // cents or rappen or similar
   final DateTime date;
 
-  final _formatCurrency = NumberFormat.simpleCurrency(name: 'CHF');
+  final _formatCurrencyAmount =
+      NumberFormat.simpleCurrency(name: '', decimalDigits: 2);
+  final _formatCurrency =
+      NumberFormat.currency(symbol: 'CHF ', decimalDigits: 2);
   final _formatDate = DateFormat('dd.MM.yyyy HH:mm');
 
   Transaction(
@@ -16,11 +19,15 @@ class Transaction {
       @required this.amount,
       @required this.date});
 
-  String formattedAmount() {
+  String get formattedAmountNoCurrency {
+    return _formatCurrencyAmount.format(amount / 100);
+  }
+
+  String get formattedAmount {
     return _formatCurrency.format(amount / 100);
   }
 
-  String formattedDate() {
+  String get formattedDate {
     return _formatDate.format(date);
   }
 }
