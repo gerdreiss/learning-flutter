@@ -30,4 +30,9 @@ class Transaction {
   String get formattedDate {
     return _formatDate.format(date);
   }
+
+  String getFormattedAmount(String currency) {
+    return NumberFormat.currency(symbol: currency, decimalDigits: 2)
+        .format(amount / 100);
+  }
 }

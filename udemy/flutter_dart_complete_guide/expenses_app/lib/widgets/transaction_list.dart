@@ -28,48 +28,77 @@ class TransactionList extends StatelessWidget {
             ])
           : ListView.builder(
               itemBuilder: (ctx, idx) => Card(
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 15,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Theme.of(context).primaryColor,
-                          width: 1,
-                        ),
-                      ),
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        _transactions[idx].formattedAmount,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Theme.of(context).primaryColor,
+                elevation: 5,
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 30.0,
+                    child: Padding(
+                      padding: EdgeInsets.all(6),
+                      child: FittedBox(
+                        child: Text(
+                          _transactions[idx].getFormattedAmount('Fr.'),
                         ),
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          _transactions[idx].title,
-                          style: Theme.of(context).textTheme.headline6,
-                        ),
-                        Text(
-                          _transactions[idx].formattedDate,
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
+                  ),
+                  title: Text(
+                    _transactions[idx].title,
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  subtitle: Text(
+                    _transactions[idx].formattedDate,
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                  visualDensity: VisualDensity.comfortable,
                 ),
               ),
+              // Card(
+              //   child: Row(
+              //     children: [
+              //       Container(
+              //         margin: EdgeInsets.symmetric(
+              //           vertical: 10,
+              //           horizontal: 15,
+              //         ),
+              //         decoration: BoxDecoration(
+              //           border: Border.all(
+              //             color: Theme.of(context).primaryColor,
+              //             width: 1,
+              //           ),
+              //         ),
+              //         padding: EdgeInsets.all(10),
+              //         child: Text(
+              //           _transactions[idx].formattedAmount,
+              //           style: TextStyle(
+              //             fontWeight: FontWeight.bold,
+              //             fontSize: 20,
+              //             color: Theme.of(context).primaryColor,
+              //           ),
+              //         ),
+              //       ),
+              //       Column(
+              //         crossAxisAlignment: CrossAxisAlignment.start,
+              //         children: [
+              //           Text(
+              //             _transactions[idx].title,
+              //             style: Theme.of(context).textTheme.headline6,
+              //           ),
+              //           Text(
+              //             _transactions[idx].formattedDate,
+              //             style: TextStyle(
+              //               color: Theme.of(context).primaryColor,
+              //               fontSize: 16,
+              //             ),
+              //           ),
+              //         ],
+              //       )
+              //     ],
+              //   ),
+              // ),
               itemCount: _transactions.length,
             ),
     );
