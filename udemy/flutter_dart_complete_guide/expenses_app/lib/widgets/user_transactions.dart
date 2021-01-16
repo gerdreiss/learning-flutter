@@ -32,12 +32,12 @@ class _UserTransactionsState extends State<UserTransactions> {
     ]);
   }
 
-  void _addNewTransaction(String title, int amount) {
+  void _addNewTransaction(String title, int amount, DateTime date) {
     final newTx = new Transaction(
       id: _transactions.length + 1,
       title: title,
       amount: amount,
-      date: DateTime.now(),
+      date: date,
     );
     setState(() {
       _transactions.add(newTx);

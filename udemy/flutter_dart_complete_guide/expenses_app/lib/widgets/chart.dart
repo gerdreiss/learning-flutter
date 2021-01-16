@@ -54,6 +54,8 @@ class Chart extends StatelessWidget {
                   ),
                 ),
               )
+              .toList()
+              .reversed
               .toList(),
         ),
       ),

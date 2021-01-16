@@ -32,12 +32,12 @@ class TransactionList extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
                 child: ListTile(
                   leading: CircleAvatar(
-                    radius: 30.0,
+                    radius: 26.0,
                     child: Padding(
                       padding: EdgeInsets.all(6),
                       child: FittedBox(
                         child: Text(
-                          _transactions[idx].getFormattedAmount('Fr.'),
+                          _transactions[idx].getFormattedAmount(''),
                         ),
                       ),
                     ),
